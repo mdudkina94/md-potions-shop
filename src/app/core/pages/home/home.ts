@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AppFooter } from '@/layout/component/app.footer';
 import { AppSidebar } from '@/layout/component/app.sidebar';
 import { AppTopbar } from '@/layout/component/app.topbar';
 import { RouterOutlet } from '@angular/router';
@@ -8,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-home',
     templateUrl: './home.html',
     styleUrl: './home.scss',
-    imports: [AppFooter, AppSidebar, AppTopbar, RouterOutlet],
+    imports: [AppSidebar, AppTopbar, RouterOutlet],
     standalone: true
 })
 export class Home {}
