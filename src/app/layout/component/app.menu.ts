@@ -8,22 +8,33 @@ import { AppMenuitem } from './app.menuitem';
     selector: 'app-menu',
     standalone: true,
     imports: [CommonModule, AppMenuitem, RouterModule],
-    template: `<ul class="layout-menu">
-        <ng-container *ngFor="let item of model; let i = index">
-            <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
-            <li *ngIf="item.separator" class="menu-separator"></li>
-        </ng-container>
-    </ul> `
+    template: `
+        <ul class="layout-menu">
+            @for (item of model; track item.id) {
+                <ng-container>
+                    @if (!item.separator) {
+                        <li app-menuitem [item]="item" [index]="$index" [root]="true"></li>
+                    } @else {
+                        <li class="menu-separator"></li>
+                    }
+                </ng-container>
+            }
+        </ul>
+    `
 })
 export class AppMenu {
-    model: MenuItem[] = [];
-
-    ngOnInit() {
-        this.model = [
-            {
-                label: 'Home',
-                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
-            }
-        ];
-    }
+    model: MenuItem[] = [
+        {
+            items: [{ label: 'Календарь', icon: 'pi pi-fw pi-calendar', routerLink: ['/'] }]
+        },
+        {
+            items: [{ label: 'Заказы', icon: 'pi pi-fw pi-shopping-bag', routerLink: ['/orders'] }]
+        },
+        {
+            items: [{ label: 'Зелья', icon: 'pi pi-fw pi-tags', routerLink: ['/potions'] }]
+        },
+        {
+            items: [{ label: 'Ингредиенты', icon: 'pi pi-fw pi-sparkles', routerLink: ['/ingredients'] }]
+        }
+    ];
 }

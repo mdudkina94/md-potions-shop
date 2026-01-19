@@ -10,6 +10,11 @@
 .layout-main {
     flex: 1 1 auto;
     padding-bottom: 2rem;
+    padding-left: 22rem;
+
+    @media screen and (max-width: 992px) {
+        padding-left: 0;
+    }
 }
 
 img {
