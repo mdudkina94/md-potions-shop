@@ -1,1 +1,35 @@
-<p>orders-list works!</p>
+<p-table [value]="orders" dataKey="orderId" [rowHover]="true" [scrollable]="true" scrollHeight="calc(100vh - 112px)">
+  <ng-template #caption>
+    <div class="flex justify-end">
+      <p-button label="Новый заказ" icon="pi pi-plus" (onClick)="newOrder()" />
+    </div>
+  </ng-template>
+  <ng-template #header>
+    <tr>
+      <th># заказа</th>
+      <th>Покупатель</th>
+      <th>Дата заказа</th>
+      <th>Дата готовности</th>
+      <th>Метод доставки</th>
+      <th>Метод оплаты</th>
+      <th>Статус заказа</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-order>
+    <tr pSelectableRow (click)="viewDetails(order)">
+      <td>{{ order.orderId }}</td>
+      <td>{{ order.customerName }}</td>
+      <td>{{ order.orderDate | date: 'dd.MM.yyyy' }}</td>
+      <td>{{ order.readyByDate | date: 'dd.MM.yyyy' }}</td>
+      <td>{{ order.deliveryMethod }}</td>
+      <td>{{ order.paymentMethod }}</td>
+      <td class="text-center">
+        <p-tag [value]="order.status" [severity]="getStatusSeverity(order.status)" />
+      </td>
+      <td>
+        <p-button icon="pi pi-search" severity="info" rounded outlined (onClick)="$event.stopPropagation(); viewDetails(order)" />
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

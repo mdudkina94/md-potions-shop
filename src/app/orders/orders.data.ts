@@ -1,4 +1,4 @@
-import { DeliveryMethod, Order, PaymentMethod } from '@/orders/orders.types';
+import { DeliveryMethod, Order, OrderStatus, PaymentMethod } from '@/orders/orders.types';
 
 export const ORDERS_DATA: Order[] = [
   {
@@ -9,6 +9,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Древесный Дом, Лунный Лес',
     deliveryMethod: DeliveryMethod.Courier,
     paymentMethod: PaymentMethod.MagicCoin,
+    status: OrderStatus.Completed,
     potions: [
       {
         id: 1001,
@@ -32,6 +33,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Темный Переулок, Задний Двор',
     deliveryMethod: DeliveryMethod.SelfPickup,
     paymentMethod: PaymentMethod.Cash,
+    status: OrderStatus.InDelivery,
     potions: [
       {
         id: 1002,
@@ -54,6 +56,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Крепость Каменных Гор, Главные Ворота',
     deliveryMethod: DeliveryMethod.Mail,
     paymentMethod: PaymentMethod.Card,
+    status: OrderStatus.Canceled,
     potions: [
       {
         id: 1003,
@@ -77,6 +80,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Высокая Башня, Топи Забвения',
     deliveryMethod: DeliveryMethod.Courier,
     paymentMethod: PaymentMethod.MagicCoin,
+    status: OrderStatus.Ready,
     potions: [
       {
         id: 1004,
@@ -99,6 +103,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Торговый Квартал, Склад №7',
     deliveryMethod: DeliveryMethod.Mail,
     paymentMethod: PaymentMethod.Card,
+    status: OrderStatus.InProgress,
     potions: [
       {
         id: 1005,
@@ -121,6 +126,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Королевский Дворец, Восточное Крыло',
     deliveryMethod: DeliveryMethod.Courier,
     paymentMethod: PaymentMethod.MagicCoin,
+    status: OrderStatus.InProgress,
     potions: [
       {
         id: 1006,
@@ -144,6 +150,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Скрытая Пещера, Ущелье Покоя',
     deliveryMethod: DeliveryMethod.SelfPickup,
     paymentMethod: PaymentMethod.Cash,
+    status: OrderStatus.InProgress,
     potions: [
       {
         id: 1007,
@@ -166,6 +173,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Кузница Дракона, Огненные Земли',
     deliveryMethod: DeliveryMethod.Mail,
     paymentMethod: PaymentMethod.Card,
+    status: OrderStatus.InProgress,
     potions: [
       {
         id: 1008,
@@ -189,6 +197,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Подводный Грот, Залив Русалок',
     deliveryMethod: DeliveryMethod.Courier,
     paymentMethod: PaymentMethod.MagicCoin,
+    status: OrderStatus.New,
     potions: [
       {
         id: 1009,
@@ -211,6 +220,7 @@ export const ORDERS_DATA: Order[] = [
     deliveryAddress: 'Секретное Логово, Чаща Шепчущих Деревьев',
     deliveryMethod: DeliveryMethod.SelfPickup,
     paymentMethod: PaymentMethod.Cash,
+    status: OrderStatus.New,
     potions: [
       {
         id: 1010,
