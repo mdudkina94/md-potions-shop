@@ -1,6 +1,7 @@
-<p-table [value]="potions" stripedRows [scrollable]="true" scrollHeight="calc(100vh - 112px)">
+<p-table [value]="potions" dataKey="id" stripedRows [scrollable]="true" scrollHeight="calc(100vh - 112px)" [expandedRowKeys]="expandedRows">
   <ng-template #header>
     <tr pFrozenColumn>
+      <th style="width: 5rem"></th>
       <th pSortableColumn="name">
         Название
         <p-sortIcon field="name" />
@@ -11,10 +12,59 @@
       </th>
     </tr>
   </ng-template>
-  <ng-template #body let-potion>
+  <ng-template #body let-potion let-expanded="expanded">
     <tr>
+      <td>
+        <p-button
+          type="button"
+          pRipple
+          [pRowToggler]="potion"
+          [text]="true"
+          [rounded]="true"
+          [plain]="true"
+          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+        />
+      </td>
       <td>{{ potion.name }}</td>
       <td>{{ potion.price }}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template #expandedrow let-potion>
+    <tr>
+      <td colspan="3">
+        <div class="p-4">
+          <p-table [value]="potion.ingredients" dataKey="id">
+            <ng-template #header>
+              <tr>
+                <th>#</th>
+                <th pSortableColumn="name">
+                  Название
+                  <p-sortIcon field="name" />
+                </th>
+                <th>Количество</th>
+                <th pSortableColumn="unitPrice">
+                  Цена за единицу
+                  <p-sortIcon field="unitPrice" />
+                </th>
+                <th pSortableColumn="totalPrice">
+                  Итоговая цена
+                  <p-sortIcon field="totalPrice" />
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template #body let-ingredient let-rowIndex="rowIndex">
+              <tr>
+                <td>{{ rowIndex + 1 }}</td>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.quantity }}</td>
+                <td>{{ ingredient.unitPrice }}</td>
+                <td>{{ ingredient.totalPrice }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </td>
     </tr>
   </ng-template>
 </p-table>

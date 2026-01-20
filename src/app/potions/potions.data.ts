@@ -7,21 +7,29 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 1,
+        name: 'Сок Солнечного Цветка',
+        unitPrice: 50,
         quantity: 3,
         totalPrice: 150
       },
       {
         id: 2,
+        name: 'Пыльца Феи',
+        unitPrice: 200,
         quantity: 1,
         totalPrice: 200
       },
       {
         id: 3,
+        name: 'Слеза Единорога',
+        unitPrice: 1000,
         quantity: 0.5,
         totalPrice: 500
       },
       {
         id: 4,
+        name: 'Чистая Родниковая Вода',
+        unitPrice: 10,
         quantity: 5,
         totalPrice: 50
       }
@@ -34,16 +42,22 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 5,
+        name: 'Корень Тенецвета',
+        unitPrice: 120,
         quantity: 2,
         totalPrice: 240
       },
       {
         id: 6,
+        name: 'Пыль Призрака',
+        unitPrice: 350,
         quantity: 1,
         totalPrice: 350
       },
       {
         id: 7,
+        name: 'Чешуя Хамелеона',
+        unitPrice: 80,
         quantity: 4,
         totalPrice: 320
       }
@@ -56,21 +70,29 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 8,
+        name: 'Коготь Грифона',
+        unitPrice: 400,
         quantity: 1,
         totalPrice: 400
       },
       {
         id: 9,
+        name: 'Сердце Гиганта (сушеное)',
+        unitPrice: 1500,
         quantity: 0.2,
         totalPrice: 300
       },
       {
         id: 10,
+        name: 'Руда Железного Кулака',
+        unitPrice: 30,
         quantity: 10,
         totalPrice: 300
       },
       {
         id: 11,
+        name: 'Эссенция Берсерка',
+        unitPrice: 250,
         quantity: 1,
         totalPrice: 250
       }
@@ -83,16 +105,22 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 12,
+        name: 'Перо Грифона',
+        unitPrice: 90,
         quantity: 3,
         totalPrice: 270
       },
       {
         id: 13,
+        name: 'Эссенция Облаков',
+        unitPrice: 180,
         quantity: 2,
         totalPrice: 360
       },
       {
         id: 14,
+        name: 'Пыль Зефира',
+        unitPrice: 100,
         quantity: 1.5,
         totalPrice: 150
       }
@@ -105,16 +133,22 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 15,
+        name: 'Четырехлистный Клевер',
+        unitPrice: 75,
         quantity: 5,
         totalPrice: 375
       },
       {
         id: 16,
+        name: 'Лапка Кролика (заколдованная)',
+        unitPrice: 300,
         quantity: 1,
         totalPrice: 300
       },
       {
         id: 17,
+        name: 'Золотая Пыль Лепрекона',
+        unitPrice: 2000,
         quantity: 0.1,
         totalPrice: 200
       }
@@ -127,21 +161,29 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 18,
+        name: 'Лепесток Веритаса',
+        unitPrice: 150,
         quantity: 2,
         totalPrice: 300
       },
       {
         id: 19,
+        name: 'Слеза Сирены',
+        unitPrice: 700,
         quantity: 0.5,
         totalPrice: 350
       },
       {
         id: 20,
+        name: 'Кристалл Чистоты',
+        unitPrice: 450,
         quantity: 1,
         totalPrice: 450
       },
       {
         id: 21,
+        name: 'Шепот Ветра (сушеный)',
+        unitPrice: 60,
         quantity: 3,
         totalPrice: 180
       }
@@ -154,16 +196,22 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 22,
+        name: 'Ягода Ночницы',
+        unitPrice: 40,
         quantity: 5,
         totalPrice: 200
       },
       {
         id: 23,
+        name: 'Нить Ловца Снов',
+        unitPrice: 110,
         quantity: 2,
         totalPrice: 220
       },
       {
         id: 24,
+        name: 'Лунная Роса',
+        unitPrice: 90,
         quantity: 3,
         totalPrice: 270
       }
@@ -176,21 +224,29 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 25,
+        name: 'Чешуя Саламандры',
+        unitPrice: 130,
         quantity: 4,
         totalPrice: 520
       },
       {
         id: 26,
+        name: 'Вулканический Пепел',
+        unitPrice: 25,
         quantity: 10,
         totalPrice: 250
       },
       {
         id: 27,
+        name: 'Пылающий Камень',
+        unitPrice: 380,
         quantity: 1,
         totalPrice: 380
       },
       {
         id: 28,
+        name: 'Кровь Огненной Виверны',
+        unitPrice: 900,
         quantity: 0.3,
         totalPrice: 270
       }
@@ -203,16 +259,22 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 29,
+        name: 'Водоросли Гиллевида',
+        unitPrice: 60,
         quantity: 6,
         totalPrice: 360
       },
       {
         id: 30,
+        name: 'Чешуя Тритона',
+        unitPrice: 170,
         quantity: 2,
         totalPrice: 340
       },
       {
         id: 31,
+        name: 'Жемчужина Глубин',
+        unitPrice: 500,
         quantity: 1,
         totalPrice: 500
       }
@@ -225,21 +287,29 @@ export const POTIONS_LIST: Potion[] = [
     ingredients: [
       {
         id: 32,
+        name: 'Усы Теневого Кота',
+        unitPrice: 100,
         quantity: 3,
         totalPrice: 300
       },
       {
         id: 33,
+        name: 'Молоко Луны',
+        unitPrice: 220,
         quantity: 1,
         totalPrice: 220
       },
       {
         id: 34,
+        name: 'Мох Перевертыша',
+        unitPrice: 140,
         quantity: 2,
         totalPrice: 280
       },
       {
         id: 35,
+        name: 'Отпечаток Лапы Крадущегося',
+        unitPrice: 190,
         quantity: 1,
         totalPrice: 190
       }

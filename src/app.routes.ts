@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { NotFound } from '@/core/pages/not-found/not-found';
-import { Home } from '@/core/pages/home/home';
+import { Home } from '@/home/home';
 import { OrdersList } from '@/orders/orders-list/orders-list';
 import { IngredientsList } from '@/ingredients/ingredients-list/ingredients-list';
 import { PotionsList } from '@/potions/potions-list/potions-list';
@@ -15,6 +14,5 @@ export const appRoutes: Routes = [
             { path: 'potions', component: PotionsList }
         ]
     },
-    { path: 'not-found', component: NotFound },
-    { path: '**', redirectTo: '/not-found' }
+    { path: '**', redirectTo: '/' }
 ];

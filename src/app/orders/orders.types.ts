@@ -1,3 +1,6 @@
+import { Ingredient } from '@/ingredients/ingredients.types';
+import { Potion } from '@/potions/potions.types';
+
 export enum DeliveryMethod {
     Mail = 'Почта',
     Courier = 'Курьер',
@@ -11,12 +14,13 @@ export enum PaymentMethod {
 }
 
 export interface Order {
-    orderId: string;
-    customerName: string;
-    orderDate: Date;
-    readyByDate: Date;
-    deliveryAddress: string;
-    deliveryMethod: DeliveryMethod;
-    paymentMethod: PaymentMethod;
-    potionId: string;
+  orderId: number;
+  customerName: string;
+  orderDate: Date;
+  readyByDate: Date;
+  deliveryAddress: string;
+  deliveryMethod: DeliveryMethod;
+  paymentMethod: PaymentMethod;
+  potions: Potion[];
+  totalOrderPrice: number;
 }

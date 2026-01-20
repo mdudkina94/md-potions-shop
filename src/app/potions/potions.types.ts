@@ -2,8 +2,7 @@ import { Ingredient } from '@/ingredients/ingredients.types';
 
 export const BASE_PRICE_PERCENT = 40;
 
-export type PotionIngredient = {
-  id: number;
+export type PotionIngredient = Ingredient & {
   quantity: number;
   totalPrice: number;
 }
