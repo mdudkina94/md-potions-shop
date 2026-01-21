@@ -19,6 +19,8 @@ export class OrdersService {
 
   newOrder(order: Order) {
     this._orders.push(order);
+
+    console.log(this._orders);
   }
 
   getOrderId(): number {

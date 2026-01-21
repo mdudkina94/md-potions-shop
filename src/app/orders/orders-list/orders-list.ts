@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { ORDERS_DATA } from '@/orders/orders.data';
 import { Order, OrderStatus, Severity } from '@/orders/orders.types';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -12,22 +12,30 @@ import { OrderView } from '@/orders/order-view/order-view';
 import { OrderForm } from '@/orders/order-form/order-form';
 import { OrdersService } from '@/orders/orders.service';
 import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-orders-list',
-  imports: [TableModule, IconFieldModule, InputIconModule, TagModule, DatePipe, ButtonModule],
+  imports: [
+    TableModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    DatePipe,
+    ButtonModule,
+    AsyncPipe
+  ],
   providers: [DialogService],
   templateUrl: './orders-list.html',
   styleUrl: './orders-list.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  standalone: true
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrdersList {
   private dialogService = inject(DialogService);
   private ordersService = inject(OrdersService);
 
   orders: Observable<Order[]> = this.ordersService.orders$;
-  ref: DynamicDialogRef | undefined;
 
   getStatusSeverity(status: OrderStatus): Severity {
     switch (status) {
@@ -62,7 +70,7 @@ export class OrdersList {
   }
 
   newOrder() {
-    this.dialogService.open(OrderForm, {
+    const dialogRef = this.dialogService.open(OrderForm, {
       header: `Новый заказ`,
       modal: true,
       width: '30vw',
@@ -74,8 +82,6 @@ export class OrdersList {
       }
     });
 
-    this.ref?.onClose.subscribe((res) => {
-      console.log(res);
-    });
+    dialogRef.onClose.subscribe((res) => {});
   }
 }

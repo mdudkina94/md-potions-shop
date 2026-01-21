@@ -1,5 +1,5 @@
 <p-table
-  [value]="orders"
+  [value]="(orders | async)!"
   dataKey="orderId"
   [rowHover]="true"
   [scrollable]="true"
@@ -23,6 +23,7 @@
       <th></th>
     </tr>
   </ng-template>
+
   <ng-template #body let-order>
     <tr pSelectableRow (click)="viewDetails(order)">
       <td>{{ order.orderId }}</td>
