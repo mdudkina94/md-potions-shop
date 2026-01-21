@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="flex flex-col gap-2 py-2">
+<form [formGroup]="form" class="flex flex-col gap-4" (submit)="onSave()">
   <input
     pInputText
     type="text"
@@ -16,4 +16,64 @@
     placeholder="Когда должно быть готово?"
     appendTo="body"
   ></p-datepicker>
+
+  <p-multiselect
+    [options]="potionsList"
+    formControlName="potions"
+    placeholder="Выберите зелья"
+    optionLabel="name"
+    display="chip"
+    appendTo="body"
+  >
+    <ng-template #selecteditems let-potions>
+      @for (potion of potions; track potion.id) {
+      <div
+        class="inline-flex items-center py-1 px-2 bg-primary text-primary-contrast rounded-border mr-2"
+      >
+        <div>{{ potion.name }}</div>
+      </div>
+      }
+    </ng-template>
+    <ng-template #item let-potion>
+      <div class="flex items-center">
+        <div>{{ potion.name }}</div>
+      </div>
+    </ng-template>
+  </p-multiselect>
+
+  <div class="flex flex-col gap-4">
+    <label class="font-semibold ml-4">Оплата зелья</label>
+    <p-selectbutton
+      [options]="paymentMethodOptions"
+      formControlName="paymentMethod"
+      optionLabel="label"
+      optionValue="value"
+      size="large"
+    />
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <label class="font-semibold ml-4">Доставка зелья</label>
+    <p-selectbutton
+      [options]="deliveryMethodOptions"
+      formControlName="deliveryMethod"
+      optionLabel="label"
+      optionValue="value"
+      size="large"
+    />
+
+    @if (form.get("deliveryMethod")?.value !== DeliveryMethod.SelfPickup) {
+    <textarea pTextarea placeholder="Адрес" [autoResize]="true" rows="3" cols="30"></textarea>
+    }
+  </div>
 </form>
+<div class="flex justify-end mt-4 gap-4">
+  <p-button
+    severity="danger"
+    label="Отмена"
+    [fluid]="false"
+    (onClick)="onClose()"
+    outlined
+  ></p-button>
+  <p-button label="Создать" [fluid]="false" (onClick)="onSave()"></p-button>
+</div>

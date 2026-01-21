@@ -1,5 +1,35 @@
 import { DeliveryMethod, Order, OrderStatus, PaymentMethod } from '@/orders/orders.types';
 
+export const DELIVERY_METHODS = [
+  {
+    label: 'Самовывоз',
+    value: DeliveryMethod.SelfPickup
+  },
+  {
+    label: 'Доставка',
+    value: DeliveryMethod.Courier
+  },
+  {
+    label: 'Почта',
+    value: DeliveryMethod.Mail
+  }
+];
+
+export const PAYMENT_METHODS = [
+  {
+    label: 'Наличные',
+    value: PaymentMethod.Cash
+  },
+  {
+    label: 'Карта',
+    value: PaymentMethod.Card
+  },
+  {
+    label: 'Волшебные монеты',
+    value: PaymentMethod.MagicCoin
+  }
+];
+
 export const ORDERS_DATA: Order[] = [
   {
     orderId: 101,
