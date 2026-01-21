@@ -1,1 +1,6 @@
-<p>order-form works!</p>
+<form [formGroup]="form" class="flex flex-col gap-2 py-5">
+  <p-floatlabel>
+    <input pInputText id="customerName" type="text" formControlName="customerName" class="w-full" />
+    <label for="customerName">Имя заказчика</label>
+  </p-floatlabel>
+</form>
