@@ -1,4 +1,17 @@
-<p-table [value]="potions" dataKey="id" stripedRows [scrollable]="true" scrollHeight="calc(100vh - 112px)" [expandedRowKeys]="expandedRows">
+<p-table
+  [value]="potions"
+  dataKey="id"
+  stripedRows
+  [scrollable]="true"
+  scrollHeight="calc(100vh - 112px)"
+  [expandedRowKeys]="expandedRows"
+>
+  <ng-template #caption>
+    <div class="flex justify-between">
+      <div class="font-semibold text-xl">Зелья</div>
+      <p-button label="Новое зелье" icon="pi pi-plus" (onClick)="newPotion()" />
+    </div>
+  </ng-template>
   <ng-template #header>
     <tr pFrozenColumn>
       <th style="width: 5rem"></th>

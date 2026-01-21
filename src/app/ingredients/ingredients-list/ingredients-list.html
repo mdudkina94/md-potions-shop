@@ -1,4 +1,13 @@
-<p-table [value]="ingredients" stripedRows [scrollable]="true" [tableStyle]="{ 'min-width': '50rem' }" scrollHeight="calc(100vh - 112px)">
+<p-table
+  [value]="ingredients"
+  stripedRows
+  [scrollable]="true"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  scrollHeight="calc(100vh - 112px)"
+>
+  <ng-template #caption>
+    <div class="font-semibold text-xl">Игредиенты</div>
+  </ng-template>
   <ng-template #header>
     <tr pFrozenColumn>
       <th pSortableColumn="name">

@@ -1,6 +1,19 @@
-<form [formGroup]="form" class="flex flex-col gap-2 py-5">
-  <p-floatlabel>
-    <input pInputText id="customerName" type="text" formControlName="customerName" class="w-full" />
-    <label for="customerName">Имя заказчика</label>
-  </p-floatlabel>
+<form [formGroup]="form" class="flex flex-col gap-2 py-2">
+  <input
+    pInputText
+    type="text"
+    formControlName="customerName"
+    placeholder="Кто заказал?"
+    [pAutoFocus]="true"
+  />
+
+  <p-datepicker
+    formControlName="readyByDate"
+    readonlyInput
+    dateFormat="dd.mm.yy"
+    [showIcon]="true"
+    [minDate]="currentDate"
+    placeholder="Когда должно быть готово?"
+    appendTo="body"
+  ></p-datepicker>
 </form>

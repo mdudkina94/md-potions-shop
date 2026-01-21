@@ -9,8 +9,7 @@ describe('OrderView', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [OrderView]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OrderView);
     component = fixture.componentInstance;

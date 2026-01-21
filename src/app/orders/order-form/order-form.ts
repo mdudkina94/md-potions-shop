@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
+import { DatePickerModule } from 'primeng/datepicker';
+import { AutoFocus } from 'primeng/autofocus';
 
 @Component({
   selector: 'app-order-form',
-  imports: [ReactiveFormsModule, FloatLabelModule, InputTextModule],
+  imports: [ReactiveFormsModule, InputTextModule, DatePickerModule, AutoFocus],
   templateUrl: './order-form.html',
   styleUrl: './order-form.scss',
   standalone: true
@@ -26,8 +27,9 @@ export class OrderForm implements OnInit {
     totalOrderPrice: new FormControl(null)
   });
 
-  ngOnInit() {
-  }
+  readonly currentDate = new Date();
+
+  ngOnInit() {}
 
   onClose(): void {
     this.ref.close();

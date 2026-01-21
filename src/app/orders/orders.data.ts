@@ -63,7 +63,13 @@ export const ORDERS_DATA: Order[] = [
         name: 'Зелье Силы',
         ingredients: [
           { id: 8, name: 'Коготь Грифона', unitPrice: 400, quantity: 1, totalPrice: 400 },
-          { id: 9, name: 'Сердце Гиганта (сушеное)', unitPrice: 1500, quantity: 0.2, totalPrice: 300 },
+          {
+            id: 9,
+            name: 'Сердце Гиганта (сушеное)',
+            unitPrice: 1500,
+            quantity: 0.2,
+            totalPrice: 300
+          },
           { id: 10, name: 'Руда Железного Кулака', unitPrice: 30, quantity: 10, totalPrice: 300 },
           { id: 11, name: 'Эссенция Берсерка', unitPrice: 250, quantity: 1, totalPrice: 250 }
         ],
@@ -110,8 +116,20 @@ export const ORDERS_DATA: Order[] = [
         name: 'Зелье Удачи',
         ingredients: [
           { id: 15, name: 'Четырехлистный Клевер', unitPrice: 75, quantity: 5, totalPrice: 375 },
-          { id: 16, name: 'Лапка Кролика (заколдованная)', unitPrice: 300, quantity: 1, totalPrice: 300 },
-          { id: 17, name: 'Золотая Пыль Лепрекона', unitPrice: 2000, quantity: 0.1, totalPrice: 200 }
+          {
+            id: 16,
+            name: 'Лапка Кролика (заколдованная)',
+            unitPrice: 300,
+            quantity: 1,
+            totalPrice: 300
+          },
+          {
+            id: 17,
+            name: 'Золотая Пыль Лепрекона',
+            unitPrice: 2000,
+            quantity: 0.1,
+            totalPrice: 200
+          }
         ],
         price: 875
       }
@@ -229,7 +247,13 @@ export const ORDERS_DATA: Order[] = [
           { id: 32, name: 'Усы Теневого Кота', unitPrice: 100, quantity: 3, totalPrice: 300 },
           { id: 33, name: 'Молоко Луны', unitPrice: 220, quantity: 1, totalPrice: 220 },
           { id: 34, name: 'Мох Перевертыша', unitPrice: 140, quantity: 2, totalPrice: 280 },
-          { id: 35, name: 'Отпечаток Лапы Крадущегося', unitPrice: 190, quantity: 1, totalPrice: 190 }
+          {
+            id: 35,
+            name: 'Отпечаток Лапы Крадущегося',
+            unitPrice: 190,
+            quantity: 1,
+            totalPrice: 190
+          }
         ],
         price: 990
       }

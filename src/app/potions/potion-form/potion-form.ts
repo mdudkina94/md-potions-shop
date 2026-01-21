@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './potion-form.html',
   styleUrl: './potion-form.scss'
 })
-export class PotionForm {
-
-}
+export class PotionForm {}

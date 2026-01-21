@@ -8,7 +8,6 @@ interface expandedRows {
   [key: string]: boolean;
 }
 
-
 @Component({
   selector: 'app-potions-list',
   imports: [TableModule, ButtonModule],
@@ -21,4 +20,6 @@ export class PotionsList {
   potions: Potion[] = POTIONS_LIST;
 
   expandedRows: expandedRows = {};
+
+  newPotion() {}
 }

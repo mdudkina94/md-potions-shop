@@ -10,7 +10,7 @@ import { AppMenuitem } from './app.menuitem';
   imports: [CommonModule, AppMenuitem, RouterModule],
   template: `
     <ul class="layout-menu">
-      @for (item of model; track item["key"]) {
+      @for (item of model; track item['key']) {
         <ng-container>
           @if (!item.separator) {
             <li app-menuitem [item]="item" [index]="$index" [root]="true"></li>

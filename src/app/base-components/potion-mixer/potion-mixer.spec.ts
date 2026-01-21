@@ -9,8 +9,7 @@ describe('PotionMixer', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PotionMixer]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PotionMixer);
     component = fixture.componentInstance;

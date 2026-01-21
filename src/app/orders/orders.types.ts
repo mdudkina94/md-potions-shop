@@ -1,5 +1,4 @@
 import { Potion } from '@/potions/potions.types';
-import { MenuItem, MenuItemCommandEvent } from 'primeng/api';
 
 export type Severity = 'success' | 'secondary' | 'info' | 'warn' | 'danger' | 'contrast';
 

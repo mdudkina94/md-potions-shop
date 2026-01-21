@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './potion-mixer.html',
   styleUrl: './potion-mixer.scss'
 })
-export class PotionMixer {
-
-}
+export class PotionMixer {}

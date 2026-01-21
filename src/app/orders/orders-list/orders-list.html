@@ -1,6 +1,13 @@
-<p-table [value]="orders" dataKey="orderId" [rowHover]="true" [scrollable]="true" scrollHeight="calc(100vh - 112px)">
+<p-table
+  [value]="orders"
+  dataKey="orderId"
+  [rowHover]="true"
+  [scrollable]="true"
+  scrollHeight="calc(100vh - 112px)"
+>
   <ng-template #caption>
-    <div class="flex justify-end">
+    <div class="flex justify-between">
+      <div class="font-semibold text-xl">Заказы</div>
       <p-button label="Новый заказ" icon="pi pi-plus" (onClick)="newOrder()" />
     </div>
   </ng-template>
@@ -28,7 +35,13 @@
         <p-tag [value]="order.status" [severity]="getStatusSeverity(order.status)" />
       </td>
       <td>
-        <p-button icon="pi pi-search" severity="info" rounded outlined (onClick)="$event.stopPropagation(); viewDetails(order)" />
+        <p-button
+          icon="pi pi-search"
+          severity="info"
+          rounded
+          outlined
+          (onClick)="$event.stopPropagation(); viewDetails(order)"
+        />
       </td>
     </tr>
   </ng-template>

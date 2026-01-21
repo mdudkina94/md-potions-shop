@@ -9,8 +9,7 @@ describe('OrderForm', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [OrderForm]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OrderForm);
     component = fixture.componentInstance;

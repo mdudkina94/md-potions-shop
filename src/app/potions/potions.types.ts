@@ -5,7 +5,7 @@ export const BASE_PRICE_PERCENT = 40;
 export type PotionIngredient = Ingredient & {
   quantity: number;
   totalPrice: number;
-}
+};
 
 export interface Potion {
   id: number;
