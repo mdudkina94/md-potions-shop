@@ -7,9 +7,11 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DatePipe } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { OrderView } from '@/orders/order-view/order-view';
 import { OrderForm } from '@/orders/order-form/order-form';
+import { OrdersService } from '@/orders/orders.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-orders-list',
@@ -22,8 +24,10 @@ import { OrderForm } from '@/orders/order-form/order-form';
 })
 export class OrdersList {
   private dialogService = inject(DialogService);
+  private ordersService = inject(OrdersService);
 
-  orders: Order[] = ORDERS_DATA;
+  orders: Observable<Order[]> = this.ordersService.orders$;
+  ref: DynamicDialogRef | undefined;
 
   getStatusSeverity(status: OrderStatus): Severity {
     switch (status) {
@@ -68,6 +72,10 @@ export class OrdersList {
         '960px': '75vw',
         '640px': '90vw'
       }
+    });
+
+    this.ref?.onClose.subscribe((res) => {
+      console.log(res);
     });
   }
 }

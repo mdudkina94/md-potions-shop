@@ -24,6 +24,7 @@
     optionLabel="name"
     display="chip"
     appendTo="body"
+    (onChange)="onSelectPotions($event.value)"
   >
     <ng-template #selecteditems let-potions>
       @for (potion of potions; track potion.id) {
@@ -41,8 +42,13 @@
     </ng-template>
   </p-multiselect>
 
+  <div class="flex flex-col gap-2">
+    <label class="font-semibold">Сумма заказа</label>
+    <input pInputText type="text" formControlName="totalOrderPrice" readonly />
+  </div>
+
   <div class="flex flex-col gap-4">
-    <label class="font-semibold ml-4">Оплата зелья</label>
+    <label class="font-semibold">Оплата зелья</label>
     <p-selectbutton
       [options]="paymentMethodOptions"
       formControlName="paymentMethod"
@@ -53,7 +59,7 @@
   </div>
 
   <div class="flex flex-col gap-4">
-    <label class="font-semibold ml-4">Доставка зелья</label>
+    <label class="font-semibold">Доставка зелья</label>
     <p-selectbutton
       [options]="deliveryMethodOptions"
       formControlName="deliveryMethod"
@@ -75,5 +81,10 @@
     (onClick)="onClose()"
     outlined
   ></p-button>
-  <p-button label="Создать" [fluid]="false" (onClick)="onSave()"></p-button>
+  <p-button
+    label="Создать"
+    [fluid]="false"
+    [disabled]="form.invalid"
+    (onClick)="onSave()"
+  ></p-button>
 </div>

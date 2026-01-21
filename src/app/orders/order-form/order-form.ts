@@ -8,10 +8,12 @@ import { ButtonModule } from 'primeng/button';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DELIVERY_METHODS, PAYMENT_METHODS } from '@/orders/orders.data';
 import { TextareaModule } from 'primeng/textarea';
-import { DeliveryMethod } from '@/orders/orders.types';
-import { POTIONS_LIST } from '@/potions/potions.data';
+import { DeliveryMethod, OrderStatus, PaymentMethod } from '@/orders/orders.types';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PotionsService } from '@/potions/potions.service';
+import { OrdersService } from '@/orders/orders.service';
+import { calculateTotalOrderPrice } from '@/orders/orders.utils';
+import { Potion } from '@/potions/potions.types';
 
 @Component({
   selector: 'app-order-form',
@@ -32,6 +34,7 @@ import { PotionsService } from '@/potions/potions.service';
 export class OrderForm implements OnInit {
   private ref = inject(DynamicDialogRef);
   private potionsService = inject(PotionsService);
+  private ordersService = inject(OrdersService);
 
   form: FormGroup = new FormGroup({
     orderId: new FormControl(null),
@@ -41,21 +44,23 @@ export class OrderForm implements OnInit {
     deliveryAddress: new FormControl(null),
     deliveryMethod: new FormControl(DeliveryMethod.SelfPickup, [Validators.required]),
     status: new FormControl(null),
-    paymentMethod: new FormControl(null, [Validators.required]),
+    paymentMethod: new FormControl(PaymentMethod.Cash, [Validators.required]),
     potions: new FormControl(null, [Validators.required]),
-    totalOrderPrice: new FormControl(null)
+    totalOrderPrice: new FormControl(0)
   });
 
   readonly currentDate = new Date();
-
   readonly deliveryMethodOptions = DELIVERY_METHODS;
   readonly paymentMethodOptions = PAYMENT_METHODS;
   readonly potionsList = this.potionsService.potions;
+  readonly DeliveryMethod = DeliveryMethod;
 
   ngOnInit() {}
 
-  onClose(): void {
-    this.ref.close();
+  onSelectPotions(data: Potion[]) {
+    this.form.patchValue({
+      totalOrderPrice: calculateTotalOrderPrice(data)
+    });
   }
 
   onSave(): void {
@@ -63,12 +68,16 @@ export class OrderForm implements OnInit {
 
     const resultData = {
       ...baseData,
-      orderId: this.potionsList.
-    }
+      orderId: this.ordersService.getOrderId(),
+      orderDate: this.currentDate,
+      status: OrderStatus.New
+    };
 
-
-    console.log();
+    this.ordersService.newOrder(resultData);
+    this.onClose();
   }
 
-  protected readonly DeliveryMethod = DeliveryMethod;
+  onClose(): void {
+    this.ref.close();
+  }
 }
