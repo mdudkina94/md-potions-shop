@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PotionForm } from './potion-form';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 describe('PotionForm', () => {
   let component: PotionForm;
@@ -8,7 +9,8 @@ describe('PotionForm', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PotionForm]
+      imports: [PotionForm],
+      providers: [DynamicDialogRef]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PotionForm);
