@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderView } from './order-view';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 describe('OrderView', () => {
   let component: OrderView;
@@ -8,7 +9,8 @@ describe('OrderView', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderView]
+      imports: [OrderView],
+      providers: [DynamicDialogConfig, DynamicDialogRef]
     }).compileComponents();
 
     fixture = TestBed.createComponent(OrderView);

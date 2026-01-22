@@ -26,18 +26,14 @@ export class AppMenu {
   model: MenuItem[] = [
     {
       key: 1,
-      items: [{ label: 'Календарь', icon: 'pi pi-fw pi-calendar', routerLink: ['/'] }]
+      items: [{ label: 'Заказы', icon: 'pi pi-fw pi-shopping-bag', routerLink: [''] }]
     },
     {
       key: 2,
-      items: [{ label: 'Заказы', icon: 'pi pi-fw pi-shopping-bag', routerLink: ['/orders'] }]
-    },
-    {
-      key: 3,
       items: [{ label: 'Зелья', icon: 'pi pi-fw pi-tags', routerLink: ['/potions'] }]
     },
     {
-      key: 4,
+      key: 3,
       items: [{ label: 'Ингредиенты', icon: 'pi pi-fw pi-sparkles', routerLink: ['/ingredients'] }]
     }
   ];

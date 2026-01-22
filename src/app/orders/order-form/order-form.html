@@ -7,16 +7,6 @@
     [pAutoFocus]="true"
   />
 
-  <p-datepicker
-    formControlName="readyByDate"
-    readonlyInput
-    dateFormat="dd.mm.yy"
-    [showIcon]="true"
-    [minDate]="currentDate"
-    placeholder="Когда должно быть готово?"
-    appendTo="body"
-  ></p-datepicker>
-
   <p-multiselect
     [options]="potionsList"
     formControlName="potions"
@@ -46,6 +36,16 @@
     <label class="font-semibold">Сумма заказа</label>
     <input pInputText type="text" formControlName="totalOrderPrice" readonly />
   </div>
+
+  <p-datepicker
+    formControlName="readyByDate"
+    readonlyInput
+    dateFormat="dd.mm.yy"
+    [showIcon]="true"
+    [minDate]="currentDate"
+    placeholder="Когда должно быть готово?"
+    appendTo="body"
+  ></p-datepicker>
 
   <div class="flex flex-col gap-4">
     <label class="font-semibold">Оплата зелья</label>

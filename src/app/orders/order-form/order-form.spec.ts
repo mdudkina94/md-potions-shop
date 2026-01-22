@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderForm } from './order-form';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 describe('OrderForm', () => {
   let component: OrderForm;
@@ -8,7 +9,8 @@ describe('OrderForm', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrderForm]
+      imports: [OrderForm],
+      providers: [DynamicDialogRef]
     }).compileComponents();
 
     fixture = TestBed.createComponent(OrderForm);
