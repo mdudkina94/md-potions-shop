@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Potion } from '@/potions/potions.types';
 import { POTIONS_LIST } from '@/potions/potions.data';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PotionsService {
-  _potionsData: Potion[] = POTIONS_LIST;
+  _potions: Potion[] = POTIONS_LIST;
 
   get potions() {
-    return this._potionsData;
+    return this._potions;
+  }
+
+  get potions$(): Observable<Potion[]> {
+    return from([this._potions]);
   }
 
   newPotion(potion: Potion) {
-    this._potionsData.push(potion);
+    this._potions.push(potion);
+  }
+
+  getNewPotionId(): number {
+    const length = this._potions.length;
+    return this._potions[length - 1].id + 1;
   }
 }

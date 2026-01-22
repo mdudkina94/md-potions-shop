@@ -1,1 +1,26 @@
-<p>potion-form works!</p>
+<form [formGroup]="form" class="flex flex-col gap-4" (submit)="onSave()">
+  <input
+    pInputText
+    type="text"
+    formControlName="name"
+    placeholder="Название зелья"
+    [pAutoFocus]="true"
+  />
+
+  <app-potion-ingredient-option></app-potion-ingredient-option>
+</form>
+<div class="flex justify-end mt-4 gap-4">
+  <p-button
+    severity="danger"
+    label="Отмена"
+    [fluid]="false"
+    (onClick)="onClose()"
+    outlined
+  ></p-button>
+  <p-button
+    label="Создать"
+    [fluid]="false"
+    [disabled]="form.invalid"
+    (onClick)="onSave()"
+  ></p-button>
+</div>
